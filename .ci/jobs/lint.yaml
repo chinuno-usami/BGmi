@@ -4,5 +4,19 @@ jobs:
       name: Lint
       pythonVersions: ['3.7', '3.8']
       steps:
-        - script: poetry --version
         - template: python/pre-commit.yaml@trim21
+
+        - task: ArchiveFiles@2
+          condition: failed()
+          inputs:
+            rootFolderOrFile: $(Pipeline.Workspace)/pre-commit-cache
+            includeRootFolder: true
+            archiveFile: $(Build.ArtifactStagingDirectory)/pre-commit-$(Agent.OS)-$(python_version).zip
+            replaceExistingArchive: true
+            verbose: true  # Optional
+
+        - task: PublishBuildArtifacts@1
+          condition: failed()
+          inputs:
+            pathToPublish: $(Build.ArtifactStagingDirectory)
+            artifactName: pre-commit
