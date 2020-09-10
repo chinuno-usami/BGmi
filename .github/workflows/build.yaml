@@ -1,0 +1,28 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  binary:
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos, windows, ubuntu]
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+
+      - uses: Trim21/setup-poetry@dist/v1
+      - uses: Trim21/install-poetry-project@dist/v1
+
+      - name: mypy
+        run: pyinstaller bgmi.spec
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: binary
+          path: dist/*
