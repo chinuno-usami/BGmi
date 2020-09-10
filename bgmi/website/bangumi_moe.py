@@ -46,8 +46,7 @@ def process_name(data):
 
 
 def process_subtitle(data):
-    """get subtitle group name from links
-    """
+    """get subtitle group name from links"""
     result = {}
     for s in data:
         # pprint(data)
@@ -59,8 +58,7 @@ def process_subtitle(data):
 
 
 def parser_bangumi(data):
-    """match weekly bangumi list from data
-    """
+    """match weekly bangumi list from data"""
 
     ids = list(map(lambda b: b["tag_id"], data))
     subtitle = get_response(TEAM_URL, "POST", json={"tag_ids": ids})
@@ -94,7 +92,10 @@ def parser_bangumi(data):
 
 class BangumiMoe(BaseWebsite):
     def fetch_episode_of_bangumi(
-        self, bangumi_id: str, max_page: int, subtitle_list: Optional[List[str]] = None,
+        self,
+        bangumi_id: str,
+        max_page: int,
+        subtitle_list: Optional[List[str]] = None,
     ) -> List[Episode]:
         response_data = []
         ret = []
@@ -126,7 +127,7 @@ class BangumiMoe(BaseWebsite):
                     episode=self.parse_episode(bangumi["title"]),
                     time=int(
                         datetime.datetime.strptime(
-                            bangumi["publish_time"].split(".")[0], "%Y-%m-%dT%H:%M:%S",
+                            bangumi["publish_time"].split(".")[0], "%Y-%m-%dT%H:%M:%S"
                         ).timestamp()
                     ),
                 )
@@ -169,7 +170,7 @@ class BangumiMoe(BaseWebsite):
                     time=int(
                         time.mktime(
                             datetime.datetime.strptime(
-                                info["publish_time"].split(".")[0], "%Y-%m-%dT%H:%M:%S",
+                                info["publish_time"].split(".")[0], "%Y-%m-%dT%H:%M:%S"
                             ).timetuple()
                         )
                     ),

@@ -461,7 +461,7 @@ def update(
                 followed_obj.updated_time = int(time.time())
                 followed_obj.save()
                 result["data"]["updated"].append(
-                    {"bangumi": subscribe["bangumi_name"], "episode": episode,}
+                    {"bangumi": subscribe["bangumi_name"], "episode": episode}
                 )
 
             for i in episode_range:

@@ -110,7 +110,7 @@ def parse_episodes(content, bangumi_id, subtitle_list=None) -> List[Episode]:
                 Episode(
                     **{
                         "download": server_root[:-1]
-                        + tr.find_all("td")[-1].find("a",).attrs.get("href", ""),
+                        + tr.find_all("td")[-1].find("a").attrs.get("href", ""),
                         "subtitle_group": str(subtitle_id),
                         "title": title,
                         "episode": parse_episode(title),
@@ -138,7 +138,7 @@ def parser_day_bangumi(soup) -> List[WebsiteBangumi]:
             name = url["title"]
             url = url["href"]
             bangumi_id = url.split("/")[-1]
-            soup.find("li",)
+            soup.find("li")
             li.append(
                 WebsiteBangumi(
                     name=name, keyword=bangumi_id, cover=_COVER_URL + span["data-src"]
