@@ -3,3 +3,6 @@ rules:
   - base: master
     upstream: BGmi:master    # change `wei` to the owner of upstream repo
     mergeMethod: rebase
+  - base: dev
+    upstream: BGmi:dev    # change `wei` to the owner of upstream repo
+    mergeMethod: force-push
