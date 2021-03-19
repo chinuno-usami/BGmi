@@ -2,7 +2,7 @@ version: "1"
 rules:
   - base: master
     upstream: BGmi:master    # change `wei` to the owner of upstream repo
-    mergeMethod: rebase
+    mergeMethod: hardreset
   - base: dev
     upstream: BGmi:dev    # change `wei` to the owner of upstream repo
-    mergeMethod: force-push
+    mergeMethod: hardreset
