@@ -6,7 +6,7 @@
     "@trim21:app"
   ],
   "baseBranches": [
-    "dev"
+    "master"
   ],
   "rangeStrategy": "pin",
   "separateMajorMinor": true,
