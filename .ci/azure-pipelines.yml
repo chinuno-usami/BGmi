@@ -11,8 +11,6 @@ trigger:
       - '*'
 
   paths:
-    include:
-      - /
     exclude:
       - CHANGELOG.md
       - README.*
