@@ -30,6 +30,7 @@ schedules:
 resources:
   repositories:
     - repository: trim21
+      endpoint: github
       type: github
       name: Trim21/azure-pipeline-templates
       ref: refs/tags/v0.2.0
