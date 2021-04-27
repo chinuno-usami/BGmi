@@ -3,12 +3,8 @@
   "extends": [
     "github>Trim21/renovate-config",
     "github>Trim21/renovate-config:monthly",
+    "github>Trim21/renovate-config:poetry",
     "github>Trim21/renovate-config:app"
-  ],
-  "enabledManagers": [
-    "poetry",
-    "azure-pipelines",
-    "github-actions"
   ],
   "baseBranches": [
     "master"
