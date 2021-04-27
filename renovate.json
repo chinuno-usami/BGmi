@@ -27,6 +27,7 @@
     },
     {
       "matchUpdateTypes": ["patch", "minor"],
+      "separateMinorPatch": false,
       "groupName": "deps-dev",
       "matchDepTypes": [
         "dev-dependencies"
