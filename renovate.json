@@ -13,21 +13,22 @@
   "separateMinorPatch": false,
   "packageRules": [
     {
-      "packageNames": [
+      "matchPackageNames": [
         "wcwidth"
       ],
       "rangeStrategy": "bump"
     },
     {
       "groupName": "deps-prod",
-      "depTypeList": [
+      "matchDepTypes": [
         "dependencies"
       ],
       "semanticCommitScope": "deps"
     },
     {
+      "matchUpdateTypes": ["patch", "minor"],
       "groupName": "deps-dev",
-      "depTypeList": [
+      "matchDepTypes": [
         "dev-dependencies"
       ],
       "semanticCommitScope": "deps-dev"
