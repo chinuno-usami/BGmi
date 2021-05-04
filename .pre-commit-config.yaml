@@ -32,7 +32,7 @@ repos:
         args: [--remove]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: d6e82e348ad399e0bd625dc267dd6708276f3b28  # frozen: v2.13.0
+    rev: 24f855af7650827d000ca287b8fab133914ff6a3  # frozen: v2.14.0
     hooks:
       - id: pyupgrade
         args: [--py36-plus]
